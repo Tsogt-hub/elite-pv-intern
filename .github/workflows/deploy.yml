@@ -16,6 +16,9 @@ concurrency:
 
 jobs:
   build-and-deploy:
+    # Der Tsogt-hub-Fork wird über Railway ausgeliefert und hat keine Pages-Site.
+    # Build, Audit und Docker-Abnahme laufen für beide Repositories in ci.yml.
+    if: github.repository == 'levinschober-eltie/elite-pv-intern'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
